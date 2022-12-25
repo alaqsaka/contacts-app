@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { RiDeleteBin2Line } from "react-icons/ri";
 
 function DeleteButton({ id, onDelete }) {
   return (
     <button className="contact-item__delete" onClick={() => onDelete(id)}>
-      X
+      <RiDeleteBin2Line />
     </button>
   );
 }
