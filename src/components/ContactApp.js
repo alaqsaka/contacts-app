@@ -17,6 +17,7 @@ class ContactApp extends Component {
     };
 
     this.onLoginSuccess = this.onLoginSuccess.bind(this);
+    this.onLogut = this.onLogut.bind(this);
   }
 
   async onLoginSuccess({ accessToken }) {
@@ -39,6 +40,16 @@ class ContactApp extends Component {
         initializing: false,
       };
     });
+  }
+
+  onLogut() {
+    this.setState(() => {
+      return {
+        authedUser: null,
+      };
+    });
+
+    putAccessToken("");
   }
 
   render() {
@@ -70,7 +81,7 @@ class ContactApp extends Component {
       <div className="contact-app">
         <header className="contact-app__header">
           <h1>Aplikasi Kontak</h1>
-          <Navigation />
+          <Navigation logout={this.onLogut} name={this.state.authedUser.name} />
         </header>
         <main>
           <Routes>
